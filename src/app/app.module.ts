@@ -8,6 +8,7 @@ import { ApadrinheComponent } from './pages/apadrinhe/apadrinhe.component';
 import { AdoteComponent } from './pages/adote/adote.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 import { ContatoComponent } from './pages/contato/contato.component';
+import { AnimalComponent } from './pages/animal/animal.component';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { ContatoComponent } from './pages/contato/contato.component';
         AdoteComponent,
         QuemSomosComponent,
         ContatoComponent,
+        AnimalComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

@@ -9,6 +9,8 @@ import { AdoteComponent } from './pages/adote/adote.component';
 import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { AnimalComponent } from './pages/animal/animal.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +21,8 @@ import { AnimalComponent } from './pages/animal/animal.component';
         QuemSomosComponent,
         ContatoComponent,
         AnimalComponent,
+        HeaderComponent,
+        FooterComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
     providers: [],

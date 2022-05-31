@@ -10,19 +10,16 @@ import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
 import { ContatoComponent } from './pages/contato/contato.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    ApadrinheComponent,
-    AdoteComponent,
-    QuemSomosComponent,
-    ContatoComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        ApadrinheComponent,
+        AdoteComponent,
+        QuemSomosComponent,
+        ContatoComponent,
+    ],
+    imports: [BrowserModule, AppRoutingModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

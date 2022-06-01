@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SiteData } from 'src/app/domain/site-data';
 import { AdoteComponent } from 'src/app/pages/adote/adote.component';
 import { ApadrinheComponent } from 'src/app/pages/apadrinhe/apadrinhe.component';
 import { ContatoComponent } from 'src/app/pages/contato/contato.component';
@@ -13,15 +14,15 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'apadrinhe',
+        path: SiteData.SLUG_APADRINHE,
         component: ApadrinheComponent,
     },
     {
-        path: 'adote',
+        path: SiteData.SLUG_ADOTE,
         component: AdoteComponent,
     },
     {
-        path: 'quem-somos',
+        path: SiteData.SLUG_QUEM_SOMOS,
         component: QuemSomosComponent,
     },
     {

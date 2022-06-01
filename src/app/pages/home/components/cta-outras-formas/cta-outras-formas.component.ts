@@ -5,17 +5,17 @@ import { IPageRequest } from 'src/app/services/load-page/interfaces/page-request
 import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
 @Component({
-    selector: 'va-cta-quem-somos',
-    templateUrl: './cta-quem-somos.component.html',
-    styleUrls: ['./cta-quem-somos.component.scss'],
+    selector: 'va-cta-outras-formas',
+    templateUrl: './cta-outras-formas.component.html',
+    styleUrls: ['./cta-outras-formas.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CtaQuemSomosComponent {
+export class CtaOutrasFormasComponent {
     public pageData$: Observable<IPageRequest> = of();
 
     constructor(protected loadPageService: LoadPageService) {
         this.pageData$ = this.loadPageService.loadPageBySlug(
-            SiteData.SLUG_QUEM_SOMOS
+            SiteData.SLUG_OUTRAS_FORMAS
         );
     }
 }

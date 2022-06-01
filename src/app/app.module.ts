@@ -15,6 +15,7 @@ import { CtaApadrinheComponent } from './pages/home/components/cta-apadrinhe/cta
 import { CtaAdoteComponent } from './pages/home/components/cta-adote/cta-adote.component';
 import { CtaQuemSomosComponent } from './pages/home/components/cta-quem-somos/cta-quem-somos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-formas/cta-outras-formas.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
         CtaApadrinheComponent,
         CtaAdoteComponent,
         CtaQuemSomosComponent,
+        CtaOutrasFormasComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, HttpClientModule],
     providers: [],

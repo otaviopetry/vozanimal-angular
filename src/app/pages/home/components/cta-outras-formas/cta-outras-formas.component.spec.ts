@@ -1,9 +1,9 @@
 import { SiteData } from 'src/app/domain/site-data';
-import { CtaAdoteComponent } from 'src/app/pages/home/components/cta-adote/cta-adote.component';
+import { CtaOutrasFormasComponent } from 'src/app/pages/home/components/cta-outras-formas/cta-outras-formas.component';
 import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
-describe('[Unit] - CtaAdoteComponent', (): void => {
-    let component: CtaAdoteComponent;
+describe('[Unit] - CtaOutrasFormasComponent', (): void => {
+    let component: CtaOutrasFormasComponent;
 
     let loadPageServiceSpy: jasmine.SpyObj<LoadPageService>;
 
@@ -11,7 +11,7 @@ describe('[Unit] - CtaAdoteComponent', (): void => {
         loadPageServiceSpy = jasmine.createSpyObj('LoadPageService', [
             'loadPageBySlug',
         ]);
-        component = new CtaAdoteComponent(loadPageServiceSpy);
+        component = new CtaOutrasFormasComponent(loadPageServiceSpy);
     });
 
     it('should initialize the component', (): void => {
@@ -20,7 +20,7 @@ describe('[Unit] - CtaAdoteComponent', (): void => {
 
     it('should call LoadPageService and request the correct page by slug', (): void => {
         expect(loadPageServiceSpy.loadPageBySlug).toHaveBeenCalledWith(
-            SiteData.SLUG_ADOTE
+            SiteData.SLUG_OUTRAS_FORMAS
         );
     });
 });

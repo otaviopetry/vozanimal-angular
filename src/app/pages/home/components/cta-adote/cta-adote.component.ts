@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { IPageRequest, LoadPageService } from 'src/app/services/load-page/load-page.service';
 
 @Component({
     selector: 'va-cta-adote',
@@ -7,5 +9,11 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CtaAdoteComponent {
-    //
+    public pageData$: Observable<IPageRequest> = of();
+
+    constructor(
+        protected loadPageService: LoadPageService,
+    ) {
+        this.pageData$ = this.loadPageService.loadPageBySlug('adote');
+    }
 }

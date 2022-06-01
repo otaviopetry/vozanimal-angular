@@ -15,6 +15,10 @@ describe('[Unit] - CtaApadrinheComponent', (): void => {
     });
 
     it('should initialize the component', (): void => {
+        expect(component).toBeDefined();
+    });
+
+    it('should call LoadPageService and request the correct page by slug', (): void => {
         expect(loadPageServiceSpy.loadPageBySlug).toHaveBeenCalledWith('apadrinhe');
     });
 });

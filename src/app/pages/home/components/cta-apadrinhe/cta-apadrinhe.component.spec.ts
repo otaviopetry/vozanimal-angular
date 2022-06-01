@@ -1,13 +1,20 @@
 import { CtaApadrinheComponent } from 'src/app/pages/home/components/cta-apadrinhe/cta-apadrinhe.component';
+import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
 describe('[Unit] - CtaApadrinheComponent', (): void => {
     let component: CtaApadrinheComponent;
 
+    let loadPageServiceSpy: jasmine.SpyObj<LoadPageService>;
+
     beforeEach((): void => {
-        component = new CtaApadrinheComponent();
+        loadPageServiceSpy = jasmine.createSpyObj(
+            'LoadPageService',
+            ['loadPageBySlug']
+        );
+        component = new CtaApadrinheComponent(loadPageServiceSpy);
     });
 
     it('should initialize the component', (): void => {
-        expect(component).toBeDefined();
+        expect(loadPageServiceSpy.loadPageBySlug).toHaveBeenCalledWith('apadrinhe');
     });
 });

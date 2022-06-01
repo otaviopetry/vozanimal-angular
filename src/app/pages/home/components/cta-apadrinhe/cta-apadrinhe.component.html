@@ -1,1 +1,4 @@
-<p>cta-apadrinhe works!</p>
+<ng-container *ngIf="pageData$ | async as page">
+    <h2>{{ page[0].title.rendered }}</h2>
+    <p>{{ page[0].excerpt.rendered }}</p>
+</ng-container>

@@ -7,11 +7,15 @@ interface IPageContent {
     rendered: string;
 }
 
-interface IPageData {
+export interface IPageData {
     id: number;
-    title: string;
+    title: IPageContent;
     content: IPageContent;
     excerpt: IPageContent;
+}
+
+export interface IPageRequest {
+    [index: number]: IPageData;
 }
 
 @Injectable({
@@ -22,9 +26,9 @@ export class LoadPageService {
         //
     }
 
-    public loadPageBySlug(slug: string): Observable<IPageData> {
-        const endpoint: string = `${environment.apiUrl}/pages?slug=${slug}`;
+    public loadPageBySlug(slug: string): Observable<IPageRequest> {
+        const endpoint: string = `${environment.apiUrl}pages?slug=${slug}`;
 
-        return this.httpClient.get<IPageData>(endpoint);
+        return this.httpClient.get<IPageRequest>(endpoint);
     }
 }

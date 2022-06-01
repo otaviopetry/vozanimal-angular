@@ -12,10 +12,16 @@ import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 })
 export class CtaOutrasFormasComponent {
     public pageData$: Observable<IPageRequest> = of();
+    public childPages$: Observable<IPageRequest> = of();
 
     constructor(protected loadPageService: LoadPageService) {
         this.pageData$ = this.loadPageService.loadPageBySlug(
             SiteData.SLUG_OUTRAS_FORMAS
         );
+        this.loadPageService
+            .loadPagesByParentSlug(SiteData.SLUG_OUTRAS_FORMAS)
+            .subscribe((childPages: IPageRequest): void => {
+                console.log('===> childPages', childPages);
+            });
     }
 }

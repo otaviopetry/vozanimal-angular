@@ -1,13 +1,4 @@
-interface IPageContent {
-    rendered: string;
-}
-
-interface IPageData {
-    id: number;
-    title: IPageContent;
-    content: IPageContent;
-    excerpt: IPageContent;
-}
+import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 
 export interface IPageRequest {
     [index: number]: IPageData;

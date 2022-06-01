@@ -2,3 +2,9 @@
     <h2>{{ page[0].title.rendered }}</h2>
     <p>{{ page[0].excerpt.rendered }}</p>
 </ng-container>
+<ng-container *ngFor="let childPage of childPages$ | async">
+    <div class="child-page">
+        <h3>{{ childPage.title.rendered }}</h3>
+        <p>{{ childPage.excerpt.rendered }}</p>
+    </div>
+</ng-container>

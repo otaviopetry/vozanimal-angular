@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SiteData } from 'src/app/domain/site-data';
+import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 import { IPageRequest } from 'src/app/services/load-page/interfaces/page-request.interface';
 import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
@@ -12,16 +13,14 @@ import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 })
 export class CtaOutrasFormasComponent {
     public pageData$: Observable<IPageRequest> = of();
-    public childPages$: Observable<IPageRequest> = of();
+    public childPages$: Observable<IPageData[]> = of();
 
     constructor(protected loadPageService: LoadPageService) {
         this.pageData$ = this.loadPageService.loadPageBySlug(
             SiteData.SLUG_OUTRAS_FORMAS
         );
-        this.loadPageService
-            .loadPagesByParentSlug(SiteData.SLUG_OUTRAS_FORMAS)
-            .subscribe((childPages: IPageRequest): void => {
-                console.log('===> childPages', childPages);
-            });
+        this.childPages$ = this.loadPageService.loadPagesByParentSlug(
+            SiteData.SLUG_OUTRAS_FORMAS
+        );
     }
 }

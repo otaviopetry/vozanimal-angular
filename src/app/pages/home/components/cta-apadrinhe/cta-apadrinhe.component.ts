@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { IPageRequest, LoadPageService } from 'src/app/services/load-page/load-page.service';
+import { IPageRequest } from 'src/app/services/load-page/interfaces/page-request.interface';
+import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
 @Component({
     selector: 'va-cta-apadrinhe',

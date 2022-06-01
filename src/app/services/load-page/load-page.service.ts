@@ -1,22 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IPageRequest } from 'src/app/services/load-page/interfaces/page-request.interface';
 import { environment } from 'src/environments/environment';
-
-interface IPageContent {
-    rendered: string;
-}
-
-export interface IPageData {
-    id: number;
-    title: IPageContent;
-    content: IPageContent;
-    excerpt: IPageContent;
-}
-
-export interface IPageRequest {
-    [index: number]: IPageData;
-}
 
 @Injectable({
     providedIn: 'root',

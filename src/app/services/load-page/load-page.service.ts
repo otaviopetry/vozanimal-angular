@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { concatMap, map, Observable } from 'rxjs';
-import { MainPagesActions } from 'src/app/infra/store/main-pages';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 import { environment } from 'src/environments/environment';
 

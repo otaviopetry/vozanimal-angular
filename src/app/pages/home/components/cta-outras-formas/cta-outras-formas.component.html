@@ -1,6 +1,6 @@
 <ng-container *ngIf="pageData$ | async as page">
-    <h2>{{ page[0].title.rendered }}</h2>
-    <p>{{ page[0].excerpt.rendered }}</p>
+    <h2>{{ page.title.rendered }}</h2>
+    <p>{{ page.excerpt.rendered }}</p>
 </ng-container>
 <ng-container *ngFor="let childPage of childPages$ | async">
     <div class="child-page">

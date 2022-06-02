@@ -13,8 +13,6 @@ export class MainPagesEffects {
         (): Observable<Action> => this.actions$.pipe(
             ofType(MainPagesActions.loadPage),
             concatMap(({ slug }): Observable<Action> => {
-                console.log('===> effect');
-
                 return this.loadPageService.loadPageBySlug(slug).pipe(
                     map((pageRequestResponse: IPageData[]): Action => {
                         return MainPagesActions.savePage({

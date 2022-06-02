@@ -4,16 +4,21 @@ import { of, Subscription } from 'rxjs';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 import { LoadPageService } from './load-page.service';
 
+import { MockStore, getMockStore } from '@ngrx/store/testing';
+
 describe('[Unit] - LoadPageService', () => {
     let service: LoadPageService;
-
     let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
+    const mockStore: MockStore = getMockStore();
     const subscription: Subscription = new Subscription();
 
     beforeEach((): void => {
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-        service = new LoadPageService(httpClientSpy);
+        service = new LoadPageService(
+            httpClientSpy,
+            mockStore,
+        );
     });
 
     afterEach((): void => {
@@ -23,6 +28,8 @@ describe('[Unit] - LoadPageService', () => {
     describe('loadPageBySlug', (): void => {
         it('should call the api passing the page slug', (): void => {
             const mockedSlug: string = 'randomSlug';
+
+            httpClientSpy.get.and.returnValue(of());
 
             service.loadPageBySlug(mockedSlug);
 

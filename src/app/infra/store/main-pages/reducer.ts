@@ -9,11 +9,6 @@ const mainPagesReducer = createReducer(
         state: IMainPagesState,
         { pageData }: { pageData: IPageData },
     ): IMainPagesState => {
-        console.log('===> reducer', {
-            ...state,
-            [pageData.slug]: pageData,
-        });
-
         return {
             ...state,
             [pageData.slug]: pageData,

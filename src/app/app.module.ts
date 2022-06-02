@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-formas/cta-outras-formas.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './infra/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
     declarations: [
@@ -42,6 +43,7 @@ import { reducers, metaReducers } from './infra/store';
         StoreModule.forRoot(reducers, {
             metaReducers,
         }),
+        EffectsModule.forRoot([]),
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -20,15 +20,7 @@ export class LoadPageService {
     public loadPageBySlug(slug: string): Observable<IPageData[]> {
         const endpoint: string = `${environment.apiUrl}pages?slug=${slug}`;
 
-        return this.httpClient.get<IPageData[]>(endpoint).pipe(
-            map((pageRequest: IPageData[]): IPageData[] => {
-                this.store.dispatch(MainPagesActions.savePage({
-                    pageData: pageRequest[0],
-                }))
-
-                return pageRequest;
-            })
-        );
+        return this.httpClient.get<IPageData[]>(endpoint);
     }
 
     public loadPagesByParentSlug(slug: string): Observable<IPageData[]> {

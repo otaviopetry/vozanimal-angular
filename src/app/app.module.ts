@@ -19,6 +19,7 @@ import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-for
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
+import { MainPagesEffects } from 'src/app/effects/main-pages.effects';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,9 @@ import { EffectsModule } from '@ngrx/effects';
         StoreModule.forRoot(reducers, {
             metaReducers,
         }),
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([
+            MainPagesEffects,
+        ]),
     ],
     providers: [],
     bootstrap: [AppComponent],

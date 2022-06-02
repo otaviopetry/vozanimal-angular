@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { concatMap, map, Observable } from 'rxjs';
+import { MainPagesActions } from 'src/app/infra/store/main-pages';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 import { environment } from 'src/environments/environment';
 
@@ -8,14 +10,25 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root',
 })
 export class LoadPageService {
-    constructor(protected httpClient: HttpClient) {
+    constructor(
+        protected httpClient: HttpClient,
+        protected store: Store,
+    ) {
         //
     }
 
     public loadPageBySlug(slug: string): Observable<IPageData[]> {
         const endpoint: string = `${environment.apiUrl}pages?slug=${slug}`;
 
-        return this.httpClient.get<IPageData[]>(endpoint);
+        return this.httpClient.get<IPageData[]>(endpoint).pipe(
+            map((pageRequest: IPageData[]): IPageData[] => {
+                this.store.dispatch(MainPagesActions.savePage({
+                    pageData: pageRequest[0],
+                }))
+
+                return pageRequest;
+            })
+        );
     }
 
     public loadPagesByParentSlug(slug: string): Observable<IPageData[]> {

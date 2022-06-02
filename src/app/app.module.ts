@@ -17,7 +17,7 @@ import { CtaQuemSomosComponent } from './pages/home/components/cta-quem-somos/ct
 import { HttpClientModule } from '@angular/common/http';
 import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-formas/cta-outras-formas.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers, metaReducers } from './infra/store';
 
 @NgModule({
     declarations: [
@@ -35,9 +35,14 @@ import { reducers, metaReducers } from './reducers';
         CtaQuemSomosComponent,
         CtaOutrasFormasComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, StoreModule.forRoot(reducers, {
-      metaReducers
-    })],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+        }),
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

@@ -10,6 +10,7 @@ describe('[Unit] - CtaOutrasFormasComponent', (): void => {
     beforeEach((): void => {
         loadPageServiceSpy = jasmine.createSpyObj('LoadPageService', [
             'loadPageBySlug',
+            'loadPagesByParentSlug',
         ]);
         component = new CtaOutrasFormasComponent(loadPageServiceSpy);
     });

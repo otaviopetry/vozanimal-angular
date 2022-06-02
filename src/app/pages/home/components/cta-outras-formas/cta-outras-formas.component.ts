@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SiteData } from 'src/app/domain/site-data';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
-import { IPageRequest } from 'src/app/services/load-page/interfaces/page-request.interface';
 import { LoadPageService } from 'src/app/services/load-page/load-page.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { LoadPageService } from 'src/app/services/load-page/load-page.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CtaOutrasFormasComponent {
-    public pageData$: Observable<IPageRequest> = of();
+    public pageData$: Observable<IPageData[]> = of();
     public childPages$: Observable<IPageData[]> = of();
 
     constructor(protected loadPageService: LoadPageService) {

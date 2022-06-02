@@ -44,9 +44,10 @@ describe('[Unit] - LoadPageService', () => {
         });
 
         it('should call the http client using the loaded page id as parent', waitForAsync((): void => {
+            const mockedId: number = 55;
             const mockedPageRequestResponse: IPageData[] = [
                 {
-                    id: 55,
+                    id: mockedId,
                 } as IPageData,
             ];
 
@@ -58,13 +59,11 @@ describe('[Unit] - LoadPageService', () => {
             subscription.add(
                 service
                     .loadPagesByParentSlug('anySlug')
-                    .subscribe((pageRequestResponse: IPageData[]): void => {
-                        const parentId: number = pageRequestResponse[0].id;
+                    .subscribe((): void => {})
+            );
 
-                        expect(httpClientSpy.get).toHaveBeenCalledWith(
-                            jasmine.stringContaining(parentId.toString())
-                        );
-                    })
+            expect(httpClientSpy.get).toHaveBeenCalledWith(
+                jasmine.stringContaining(mockedId.toString())
             );
         }));
     });

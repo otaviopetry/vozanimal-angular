@@ -16,6 +16,11 @@ import { CtaAdoteComponent } from './pages/home/components/cta-adote/cta-adote.c
 import { CtaQuemSomosComponent } from './pages/home/components/cta-quem-somos/cta-quem-somos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-formas/cta-outras-formas.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './infra/store';
+import { EffectsModule } from '@ngrx/effects';
+import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
+import { AnimalsComponent } from './pages/animals/animals.component';
 
 @NgModule({
     declarations: [
@@ -32,8 +37,19 @@ import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-for
         CtaAdoteComponent,
         CtaQuemSomosComponent,
         CtaOutrasFormasComponent,
+        AnimalsComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        StoreModule.forRoot(reducers, {
+            metaReducers,
+        }),
+        EffectsModule.forRoot([
+            LoadPagesEffects,
+        ]),
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

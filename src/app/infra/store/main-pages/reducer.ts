@@ -12,7 +12,7 @@ const mainPagesReducer = createReducer(
         return {
             ...state,
             [pageData.slug]: pageData,
-        }
+        };
     }),
 );
 

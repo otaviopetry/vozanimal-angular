@@ -1,6 +1,6 @@
-import { Action } from "@ngrx/store"
-import { MainPagesActions, MainPagesReducer } from "src/app/infra/store/main-pages"
-import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface"
+import { Action } from "@ngrx/store";
+import { MainPagesActions, MainPagesReducer } from "src/app/infra/store/main-pages";
+import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
 describe('[Unit] - MainPagesReducer', (): void => {
     describe('savePage', (): void => {
@@ -16,7 +16,7 @@ describe('[Unit] - MainPagesReducer', (): void => {
 
             expect(MainPagesReducer.reducer({ }, action)).toEqual({
                 [mockedSlug]: mockedPageData,
-            })
-        })
-    })
-})
+            });
+        });
+    });
+});

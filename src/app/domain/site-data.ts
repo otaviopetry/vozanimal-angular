@@ -12,5 +12,5 @@ export class SiteData {
         SiteData.SLUG_QUEM_SOMOS,
         SiteData.SLUG_OUTRAS_FORMAS,
         SiteData.SLUG_CONTATO,
-    ]
+    ];
 }

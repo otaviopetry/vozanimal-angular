@@ -16,7 +16,7 @@ describe('[Unit] - MainPagesEffects', (): void => {
         return new LoadPagesEffects(
             actions$,
             loadPageServiceSpy
-        )
+        );
     }
 
     beforeEach((): void => {
@@ -129,8 +129,8 @@ describe('[Unit] - MainPagesEffects', (): void => {
                     b: AnimalActions.saveAnimals({
                         animals: mockedAnimalsPagesBatch,
                     })
-                })
+                });
             });
         });
-    })
+    });
 });

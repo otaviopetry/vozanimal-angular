@@ -17,16 +17,20 @@ export class LoadPageService {
     }
 
     public loadPageBySlug(slug: string): Observable<IPageData[]> {
-        const endpoint: string = `${environment.apiUrl}pages?slug=${slug}`;
+        const endpoint: string = `${ environment.apiUrl }pages?slug=${ slug }`;
 
         return this.httpClient.get<IPageData[]>(endpoint);
     }
 
-    public loadPagesByParentSlug(slug: string, perPage: number = 10): Observable<IPageData[]> {
+    public loadPagesByParentSlug(
+        slug: string,
+        perPage: number = 10,
+    ): Observable<IPageData[]> {
         return this.loadPageBySlug(slug).pipe(
             concatMap((pageRequest: IPageData[]): Observable<IPageData[]> => {
                 const parentId: number = pageRequest[0].id;
-                const endpoint: string = `${environment.apiUrl}pages?parent=${parentId}&per_page=${perPage}&orderby=title&order=asc`;
+                const endpoint: string =
+                    `${ environment.apiUrl }pages?parent=${ parentId }&per_page=${ perPage }&orderby=title&order=asc`;
 
                 return this.httpClient.get<IPageData[]>(endpoint).pipe(
                     map((pageRequest: IPageData[]): IPageData[] => {

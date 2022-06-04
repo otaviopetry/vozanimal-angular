@@ -25,5 +25,3 @@ export function reducer(
 ) {
     return animalsPageReducer(state, action);
 }
-
-

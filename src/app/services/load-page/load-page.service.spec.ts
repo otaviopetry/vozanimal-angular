@@ -73,5 +73,55 @@ describe('[Unit] - LoadPageService', () => {
                 jasmine.stringContaining(mockedId.toString())
             );
         }));
+
+        it('should request 10 itens per page if no perPage argument has been passed in', (): void => {
+            const mockedId: number = 55;
+            const mockedPageRequestResponse: IPageData[] = [
+                {
+                    id: mockedId,
+                } as IPageData,
+            ];
+
+            spyOn(service, 'loadPageBySlug').and.returnValue(
+                of(mockedPageRequestResponse)
+            );
+            httpClientSpy.get.and.returnValue(of());
+
+            subscription.add(
+                service
+                    .loadPagesByParentSlug('anySlug')
+                    .subscribe((): void => {})
+                );
+
+            expect(httpClientSpy.get).toHaveBeenCalledWith(
+                jasmine.stringContaining('per_page=10'),
+            );
+        });
+
+        it('should request the wanted itens per page if the perPage argument has been passed in', (): void => {
+            const mockedId: number = 55;
+            const mockedPageRequestResponse: IPageData[] = [
+                {
+                    id: mockedId,
+                } as IPageData,
+            ];
+
+            const mockedPerPage: number = 30;
+
+            spyOn(service, 'loadPageBySlug').and.returnValue(
+                of(mockedPageRequestResponse)
+            );
+            httpClientSpy.get.and.returnValue(of());
+
+            subscription.add(
+                service
+                    .loadPagesByParentSlug('anySlug', mockedPerPage)
+                    .subscribe((): void => {})
+                );
+
+            expect(httpClientSpy.get).toHaveBeenCalledWith(
+                jasmine.stringContaining(`per_page=${mockedPerPage}`),
+            );
+        })
     });
 });

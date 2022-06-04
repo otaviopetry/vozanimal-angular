@@ -6,10 +6,10 @@ import { MainPagesActions } from 'src/app/infra/store/main-pages';
 @Component({
     selector: 'va-home',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: 'home.html',
-    styleUrls: ['home.scss'],
+    templateUrl: 'home-page.html',
+    styleUrls: ['home-page.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomePageComponent implements OnInit {
     constructor(
         protected store: Store,
     ) {

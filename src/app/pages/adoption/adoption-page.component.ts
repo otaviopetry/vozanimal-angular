@@ -6,6 +6,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     templateUrl: './adote.component.html',
     styleUrls: ['./adote.component.scss'],
 })
-export class AdoteComponent {
+export class AdoptionPageComponent {
     //
 }

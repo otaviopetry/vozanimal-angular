@@ -1,13 +1,13 @@
 import { getMockStore, MockStore } from '@ngrx/store/testing';
-import { HomeComponent } from 'src/app/pages/home/home.component';
+import { HomePageComponent } from 'src/app/pages/home/home-page.component';
 
-describe('[Unit] - HomeComponent', (): void => {
-    let component: HomeComponent;
+describe('[Unit] - HomePageComponent', (): void => {
+    let component: HomePageComponent;
 
     const mockStore: MockStore = getMockStore();
 
     beforeEach((): void => {
-        component = new HomeComponent(mockStore);
+        component = new HomePageComponent(mockStore);
     });
 
     it('should initialize the component', (): void => {

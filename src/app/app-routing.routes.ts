@@ -1,38 +1,38 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteData } from 'src/app/domain/site-data';
-import { AdoteComponent } from 'src/app/pages/adote/adote.component';
-import { AnimalsComponent } from 'src/app/pages/animals/animals.component';
-import { ApadrinheComponent } from 'src/app/pages/apadrinhe/apadrinhe.component';
-import { ContatoComponent } from 'src/app/pages/contato/contato.component';
-import { HomeComponent } from 'src/app/pages/home/home.component';
-import { QuemSomosComponent } from 'src/app/pages/quem-somos/quem-somos.component';
+import { AboutUsComponent } from 'src/app/pages/about-us/about-us.component';
+import { SponsoringPageComponent } from 'src/app/pages/sponsoring/sponsoring-page.component';
+import { ContactPageComponent } from 'src/app/pages/contact/contact-page.component';
+import { AnimalsPageComponent } from 'src/app/pages/animals/animals-page.component';
+import { AdoptionPageComponent } from 'src/app/pages/adoption/adoption-page.component';
+import { HomePageComponent } from 'src/app/pages/home/home-page.component';
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        component: HomeComponent,
+        component: HomePageComponent,
     },
     {
         path: SiteData.SLUG_APADRINHE,
-        component: ApadrinheComponent,
+        component: SponsoringPageComponent,
     },
     {
         path: SiteData.SLUG_ADOTE,
-        component: AdoteComponent,
+        component: AdoptionPageComponent,
     },
     {
         path: SiteData.SLUG_QUEM_SOMOS,
-        component: QuemSomosComponent,
+        component: AboutUsComponent,
     },
     {
         path: SiteData.SLUG_CONTATO,
-        component: ContatoComponent,
+        component: ContactPageComponent,
     },
     {
         path: SiteData.SLUG_ANIMAIS,
-        component: AnimalsComponent,
+        component: AnimalsPageComponent,
     },
 ];
 

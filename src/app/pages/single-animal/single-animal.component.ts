@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 @Component({
-    selector: 'va-animal',
+    selector: 'va-single-animal',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './animal.component.html',
-    styleUrls: ['./animal.component.scss'],
+    templateUrl: './single-animal.component.html',
+    styleUrls: ['./single-animal.component.scss'],
 })
-export class AnimalComponent {
+export class SingleAnimalPageComponent {
     constructor(
         protected store: Store,
     ) {

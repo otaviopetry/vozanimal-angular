@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from 'src/app/pages/home/home.component';
 
 import { AppRoutingModule } from './app-routing.routes';
 import { AppComponent } from './app.component';
-import { ApadrinheComponent } from './pages/apadrinhe/apadrinhe.component';
-import { AdoteComponent } from './pages/adote/adote.component';
-import { QuemSomosComponent } from './pages/quem-somos/quem-somos.component';
-import { ContatoComponent } from './pages/contato/contato.component';
-import { AnimalComponent } from './pages/animal/animal.component';
+import { SponsoringPageComponent } from './pages/sponsoring/sponsoring-page.component';
+import { AdoptionPageComponent } from './pages/adoption/adoption-page.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactPageComponent } from './pages/contact/contact-page.component';
+import { SingleAnimalPageComponent } from './pages/single-animal/single-animal.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CtaApadrinheComponent } from './pages/home/components/cta-apadrinhe/cta-apadrinhe.component';
@@ -20,24 +19,25 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
 import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
-import { AnimalsComponent } from './pages/animals/animals.component';
+import { AnimalsPageComponent } from './pages/animals/animals-page.component';
+import { HomePageComponent } from 'src/app/pages/home/home-page.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HomeComponent,
-        ApadrinheComponent,
-        AdoteComponent,
-        QuemSomosComponent,
-        ContatoComponent,
-        AnimalComponent,
+        HomePageComponent,
+        SponsoringPageComponent,
+        AdoptionPageComponent,
+        AboutUsComponent,
+        ContactPageComponent,
+        SingleAnimalPageComponent,
         HeaderComponent,
         FooterComponent,
         CtaApadrinheComponent,
         CtaAdoteComponent,
         CtaQuemSomosComponent,
         CtaOutrasFormasComponent,
-        AnimalsComponent,
+        AnimalsPageComponent,
     ],
     imports: [
         BrowserModule,

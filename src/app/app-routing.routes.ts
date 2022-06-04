@@ -4,9 +4,9 @@ import { SiteData } from 'src/app/domain/site-data';
 import { AboutUsComponent } from 'src/app/pages/about-us/about-us.component';
 import { SponsoringPageComponent } from 'src/app/pages/sponsoring/sponsoring-page.component';
 import { ContactPageComponent } from 'src/app/pages/contact/contact-page.component';
-import { AnimalsPageComponent } from 'src/app/pages/animals/animals-page.component';
 import { AdoptionPageComponent } from 'src/app/pages/adoption/adoption-page.component';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
+import { SingleAnimalPageComponent } from 'src/app/pages/single-animal/single-animal.component';
 
 const routes: Routes = [
     {
@@ -32,7 +32,12 @@ const routes: Routes = [
     },
     {
         path: SiteData.SLUG_ANIMAIS,
-        component: AnimalsPageComponent,
+        children: [
+            {
+                path: 'bombachinha',
+                component: SingleAnimalPageComponent,
+            }
+        ]
     },
 ];
 

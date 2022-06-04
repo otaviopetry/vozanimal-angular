@@ -10,3 +10,16 @@ export const selectAnimals = createSelector(
         return state.animals;
     }
 );
+
+export const selectAnimal = (animalSlug: string) => createSelector(
+    selectFeature,
+    (state: IAnimalsPagesState): IPageData | null => {
+        const animalPage = state.animals.find((animal: IPageData): boolean => animal.slug === animalSlug);
+
+        if (animalPage === undefined) {
+            return null;
+        }
+
+        return animalPage;
+    },
+);

@@ -1,1 +1,3 @@
-<p>animal works!</p>
+<ng-container *ngIf="animalPage$ | async as animalPage">
+    <pre>{{ animalPage | json }}</pre>
+</ng-container>

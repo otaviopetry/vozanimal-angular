@@ -1,5 +1,5 @@
 import { getMockStore, MockStore } from '@ngrx/store/testing';
-import { AnimalsComponent } from 'src/app/pages/animais/animals.component';
+import { AnimalsComponent } from 'src/app/pages/animals/animals.component';
 
 describe('[Unit] - AnimaisComponent', (): void => {
     let component: AnimalsComponent;

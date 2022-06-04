@@ -19,8 +19,8 @@ import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-for
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
-import { MainPagesEffects } from 'src/app/effects/main-pages.effects';
-import { AnimalsComponent } from './pages/animais/animals.component';
+import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
+import { AnimalsComponent } from './pages/animals/animals.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +47,7 @@ import { AnimalsComponent } from './pages/animais/animals.component';
             metaReducers,
         }),
         EffectsModule.forRoot([
-            MainPagesEffects,
+            LoadPagesEffects,
         ]),
     ],
     providers: [],

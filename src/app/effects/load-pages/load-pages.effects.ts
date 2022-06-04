@@ -8,7 +8,7 @@ import { IPageData } from "src/app/services/load-page/interfaces/page-data.inter
 import { LoadPageService } from "src/app/services/load-page/load-page.service";
 
 @Injectable()
-export class MainPagesEffects {
+export class LoadPagesEffects {
     handleLoadPage$ = createEffect(
         (): Observable<Action> => { return this.actions$.pipe(
             ofType(MainPagesActions.loadPage),

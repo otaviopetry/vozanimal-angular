@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteData } from 'src/app/domain/site-data';
 import { AdoteComponent } from 'src/app/pages/adote/adote.component';
-import { AnimalsComponent } from 'src/app/pages/animais/animals.component';
+import { AnimalsComponent } from 'src/app/pages/animals/animals.component';
 import { ApadrinheComponent } from 'src/app/pages/apadrinhe/apadrinhe.component';
 import { ContatoComponent } from 'src/app/pages/contato/contato.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';

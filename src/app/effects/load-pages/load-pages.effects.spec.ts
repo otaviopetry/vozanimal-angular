@@ -1,7 +1,8 @@
 import { Actions } from "@ngrx/effects";
 import { of } from "rxjs";
 import { RunHelpers, TestScheduler } from "rxjs/testing";
-import { MainPagesEffects } from "src/app/effects/main-pages.effects";
+import { LoadPagesEffects } from "src/app/effects/load-pages/load-pages.effects";
+import { AnimalsActions } from "src/app/infra/store/animais";
 import { MainPagesActions } from "src/app/infra/store/main-pages";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 import { LoadPageService } from "src/app/services/load-page/load-page.service";
@@ -11,8 +12,8 @@ describe('[Unit] - MainPagesEffects', (): void => {
 
     let testScheduler: TestScheduler;
 
-    function getEffects(actions$: Actions): MainPagesEffects {
-        return new MainPagesEffects(
+    function getEffects(actions$: Actions): LoadPagesEffects {
+        return new LoadPagesEffects(
             actions$,
             loadPageServiceSpy
         )
@@ -21,7 +22,10 @@ describe('[Unit] - MainPagesEffects', (): void => {
     beforeEach((): void => {
         loadPageServiceSpy = jasmine.createSpyObj(
             'LoadPageService',
-            ['loadPageBySlug'],
+            [
+                'loadPageBySlug',
+                'loadPagesByParentSlug',
+            ],
         );
         testScheduler = new TestScheduler((actual, expected) => {
             expect(actual).toEqual(expected);
@@ -73,6 +77,59 @@ describe('[Unit] - MainPagesEffects', (): void => {
                         pageData: mockedPageData,
                     })
                 });
+            });
+        });
+    });
+
+    describe('handleLoadAnimals$', (): void => {
+        it('should call the loadPageService and request 30 animals per page', (): void => {
+            testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
+                const actions = hot('a', {
+                    a: AnimalsActions.loadAnimals(),
+                });
+
+                const effects = getEffects(actions);
+
+                expectObservable(effects.handleLoadAnimals$);
+            });
+
+            expect(loadPageServiceSpy.loadPagesByParentSlug).toHaveBeenCalledWith(
+                'animais',
+                30,
+            );
+        });
+
+        it('should dispatch the saveAnimals action with the request response', (): void => {
+            const mockedAnimalsPagesBatch: IPageData[] = [
+                {
+                    id: 55,
+                    content: {
+                        rendered: 'random words',
+                    },
+                    excerpt: {
+                        rendered: 'random words',
+                    },
+                    slug: 'random words',
+                    title: {
+                        rendered: 'random words'
+                    },
+                },
+            ];
+
+            loadPageServiceSpy.loadPagesByParentSlug.and.returnValue(of(mockedAnimalsPagesBatch));
+
+            testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
+                const actions = hot('a', {
+                    a: AnimalsActions.loadAnimals(),
+                });
+
+                const effects = getEffects(actions);
+
+                expectObservable(effects.handleLoadAnimals$).toBe('b', {
+                    b: AnimalsActions.saveAnimals({
+                        animals: mockedAnimalsPagesBatch,
+                    })
+                })
             });
         });
     })

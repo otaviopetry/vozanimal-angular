@@ -20,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MainPagesEffects } from 'src/app/effects/main-pages.effects';
+import { AnimaisComponent } from './pages/animais/animais.component';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { MainPagesEffects } from 'src/app/effects/main-pages.effects';
         CtaAdoteComponent,
         CtaQuemSomosComponent,
         CtaOutrasFormasComponent,
+        AnimaisComponent,
     ],
     imports: [
         BrowserModule,

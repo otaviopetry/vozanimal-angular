@@ -1,13 +1,13 @@
 import { getMockStore, MockStore } from '@ngrx/store/testing';
-import { AnimalComponent } from 'src/app/pages/animal/animal.component';
+import { AnimaisComponent } from 'src/app/pages/animais/animais.component';
 
-describe('[Unit] - AnimalComponent', (): void => {
-    let component: AnimalComponent;
+describe('[Unit] - AnimaisComponent', (): void => {
+    let component: AnimaisComponent;
 
     const mockStore: MockStore = getMockStore();
 
     beforeEach((): void => {
-        component = new AnimalComponent(mockStore);
+        component = new AnimaisComponent(mockStore);
     });
 
     it('should initialize the component', (): void => {

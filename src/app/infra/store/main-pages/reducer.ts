@@ -16,6 +16,9 @@ const mainPagesReducer = createReducer(
     }),
 );
 
-export function reducer(state: IMainPagesState, action: Action): any {
+export function reducer(
+    state: IMainPagesState,
+    action: Action,
+) {
     return mainPagesReducer(state, action);
 }

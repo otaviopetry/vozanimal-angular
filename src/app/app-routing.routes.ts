@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteData } from 'src/app/domain/site-data';
 import { AdoteComponent } from 'src/app/pages/adote/adote.component';
+import { AnimaisComponent } from 'src/app/pages/animais/animais.component';
 import { ApadrinheComponent } from 'src/app/pages/apadrinhe/apadrinhe.component';
 import { ContatoComponent } from 'src/app/pages/contato/contato.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
@@ -26,8 +27,12 @@ const routes: Routes = [
         component: QuemSomosComponent,
     },
     {
-        path: 'contato',
+        path: SiteData.SLUG_CONTATO,
         component: ContatoComponent,
+    },
+    {
+        path: SiteData.SLUG_ANIMAIS,
+        component: AnimaisComponent,
     },
 ];
 
@@ -35,4 +40,4 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

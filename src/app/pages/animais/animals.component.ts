@@ -5,12 +5,12 @@ import { AnimalsActions, AnimalsSelectors } from 'src/app/infra/store/animais';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 
 @Component({
-  selector: 'va-animais',
-  templateUrl: './animais.component.html',
-  styleUrls: ['./animais.component.scss'],
+  selector: 'va-animals',
+  templateUrl: './animals.component.html',
+  styleUrls: ['./animals.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AnimaisComponent implements OnInit {
+export class AnimalsComponent implements OnInit {
     public animals$: Observable<IPageData[]> = of();
 
     constructor(

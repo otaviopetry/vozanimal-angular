@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SiteData } from 'src/app/domain/site-data';
 import { AdoteComponent } from 'src/app/pages/adote/adote.component';
-import { AnimaisComponent } from 'src/app/pages/animais/animais.component';
+import { AnimalsComponent } from 'src/app/pages/animais/animals.component';
 import { ApadrinheComponent } from 'src/app/pages/apadrinhe/apadrinhe.component';
 import { ContatoComponent } from 'src/app/pages/contato/contato.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
@@ -32,7 +32,7 @@ const routes: Routes = [
     },
     {
         path: SiteData.SLUG_ANIMAIS,
-        component: AnimaisComponent,
+        component: AnimalsComponent,
     },
 ];
 

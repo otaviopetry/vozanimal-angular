@@ -1,6 +1,6 @@
 import { Action } from "@ngrx/store";
-import { AnimalsActions, AnimalsReducer } from "src/app/infra/store/animais";
-import { IAnimalsPagesState } from "src/app/infra/store/animais/interfaces/animals-state.interface";
+import { AnimalActions, AnimalReducer } from "src/app/infra/store/animal";
+import { IAnimalsPagesState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
 describe('[Unit] - AnimalsReducer', (): void => {
@@ -21,11 +21,11 @@ describe('[Unit] - AnimalsReducer', (): void => {
             };
             const mockedAnimalsPagesBatch: IPageData[] = [mockedAnimalPage];
 
-            const action: Action = AnimalsActions.saveAnimals({
+            const action: Action = AnimalActions.saveAnimals({
                 animals: mockedAnimalsPagesBatch,
             });
 
-            expect(AnimalsReducer.reducer({ } as IAnimalsPagesState, action)).toEqual({
+            expect(AnimalReducer.reducer({ } as IAnimalsPagesState, action)).toEqual({
                 animals: mockedAnimalsPagesBatch,
             });
         });

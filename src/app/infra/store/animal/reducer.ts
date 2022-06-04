@@ -1,12 +1,12 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { AnimalsActions } from "src/app/infra/store/animais";
-import { IAnimalsPagesState } from "src/app/infra/store/animais/interfaces/animals-state.interface";
+import { AnimalActions } from "src/app/infra/store/animal";
+import { IAnimalsPagesState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
 const animalsPageReducer = createReducer(
     { },
     on(
-        AnimalsActions.saveAnimals,
+        AnimalActions.saveAnimals,
         (
             state: IAnimalsPagesState | { },
             { animals }: { animals: IPageData[] },

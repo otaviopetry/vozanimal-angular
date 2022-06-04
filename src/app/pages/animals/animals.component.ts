@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { AnimalsActions, AnimalsSelectors } from 'src/app/infra/store/animais';
+import { AnimalActions, AnimalSelectors } from 'src/app/infra/store/animal';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 
 @Component({
@@ -20,7 +20,7 @@ export class AnimalsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store.dispatch(AnimalsActions.loadAnimals());
-        this.animals$ = this.store.select(AnimalsSelectors.selectAnimals);
+        this.store.dispatch(AnimalActions.loadAnimals());
+        this.animals$ = this.store.select(AnimalSelectors.selectAnimals);
     }
 }

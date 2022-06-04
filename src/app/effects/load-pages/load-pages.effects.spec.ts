@@ -2,7 +2,7 @@ import { Actions } from "@ngrx/effects";
 import { of } from "rxjs";
 import { RunHelpers, TestScheduler } from "rxjs/testing";
 import { LoadPagesEffects } from "src/app/effects/load-pages/load-pages.effects";
-import { AnimalsActions } from "src/app/infra/store/animais";
+import { AnimalActions } from "src/app/infra/store/animal";
 import { MainPagesActions } from "src/app/infra/store/main-pages";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 import { LoadPageService } from "src/app/services/load-page/load-page.service";
@@ -85,7 +85,7 @@ describe('[Unit] - MainPagesEffects', (): void => {
         it('should call the loadPageService and request 30 animals per page', (): void => {
             testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
                 const actions = hot('a', {
-                    a: AnimalsActions.loadAnimals(),
+                    a: AnimalActions.loadAnimals(),
                 });
 
                 const effects = getEffects(actions);
@@ -120,13 +120,13 @@ describe('[Unit] - MainPagesEffects', (): void => {
 
             testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
                 const actions = hot('a', {
-                    a: AnimalsActions.loadAnimals(),
+                    a: AnimalActions.loadAnimals(),
                 });
 
                 const effects = getEffects(actions);
 
                 expectObservable(effects.handleLoadAnimals$).toBe('b', {
-                    b: AnimalsActions.saveAnimals({
+                    b: AnimalActions.saveAnimals({
                         animals: mockedAnimalsPagesBatch,
                     })
                 })

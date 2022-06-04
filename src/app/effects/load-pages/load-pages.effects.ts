@@ -17,29 +17,34 @@ export class LoadPagesEffects {
                     map((pageRequestResponse: IPageData[]): Action => {
                         return MainPagesActions.savePage({
                             pageData: pageRequestResponse[0],
-                        })
-                    })
-                )
+                        });
+                    }),
+                );
             })
-        )},
+        );},
         { dispatch: true, useEffectsErrorHandler: true },
-    )
+    );
 
     handleLoadAnimals$ = createEffect(
         (): Observable<Action> => { return this.actions$.pipe(
             ofType(AnimalActions.loadAnimals),
             concatMap((): Observable<Action> => {
-                return this.loadPageService.loadPagesByParentSlug('animais', 30).pipe(
+                const animalsPerRequest: number = 30;
+
+                return this.loadPageService.loadPagesByParentSlug(
+                    'animais',
+                    animalsPerRequest,
+                ).pipe(
                     map((pageRequestResponse: IPageData[]): Action => {
                         return AnimalActions.saveAnimals({
                             animals: pageRequestResponse,
                         });
                     }),
-                )
+                );
             }),
-        ) },
+        );},
         { dispatch: true, useEffectsErrorHandler: true },
-    )
+    );
 
     constructor(
         protected actions$: Actions,

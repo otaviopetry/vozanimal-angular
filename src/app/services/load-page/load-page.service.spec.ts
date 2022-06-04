@@ -34,7 +34,7 @@ describe('[Unit] - LoadPageService', () => {
             service.loadPageBySlug(mockedSlug);
 
             expect(httpClientSpy.get).toHaveBeenCalledWith(
-                jasmine.stringContaining(`slug=${mockedSlug}`)
+                jasmine.stringContaining(`slug=${ mockedSlug }`)
             );
         });
     });
@@ -91,7 +91,7 @@ describe('[Unit] - LoadPageService', () => {
                 service
                     .loadPagesByParentSlug('anySlug')
                     .subscribe((): void => {})
-                );
+            );
 
             expect(httpClientSpy.get).toHaveBeenCalledWith(
                 jasmine.stringContaining('per_page=10'),
@@ -117,11 +117,11 @@ describe('[Unit] - LoadPageService', () => {
                 service
                     .loadPagesByParentSlug('anySlug', mockedPerPage)
                     .subscribe((): void => {})
-                );
+            );
 
             expect(httpClientSpy.get).toHaveBeenCalledWith(
-                jasmine.stringContaining(`per_page=${mockedPerPage}`),
+                jasmine.stringContaining(`per_page=${ mockedPerPage }`),
             );
-        })
+        });
     });
 });

@@ -14,4 +14,4 @@ export const savePage = createAction(
 export const loadPage = createAction(
     Actions.LOAD_PAGE,
     props<{ slug: string }>(),
-)
+);

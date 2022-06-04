@@ -26,4 +26,4 @@ describe('[Unit] - AnimalsSelectors', (): void => {
             pending();
         });
     });
-})
+});

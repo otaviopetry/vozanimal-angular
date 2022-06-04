@@ -14,7 +14,7 @@ const animalsPageReducer = createReducer(
             return {
                 ...state,
                 animals
-            }
+            };
         },
     ),
 );

@@ -9,4 +9,4 @@ export const selectAnimals = createSelector(
     (state: IAnimalsPagesState): IPageData[] => {
         return state.animals;
     }
-)
+);

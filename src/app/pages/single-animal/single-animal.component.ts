@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of, Subscription } from 'rxjs';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
@@ -9,7 +9,7 @@ import { IPageData } from 'src/app/services/load-page/interfaces/page-data.inter
     templateUrl: './single-animal.component.html',
     styleUrls: ['./single-animal.component.scss'],
 })
-export class SingleAnimalPageComponent {
+export class SingleAnimalPageComponent implements OnDestroy {
     public animalPage$: Observable<IPageData> = of();
 
     protected subscriptions: Subscription[] = [];
@@ -28,5 +28,14 @@ export class SingleAnimalPageComponent {
                 }
             )
         );
+    }
+
+    ngOnDestroy(): void {
+        this.subscriptions.forEach(
+            (subscription: Subscription): void => {
+                subscription.unsubscribe();
+            }
+        );
+        this.subscriptions = [];
     }
 }

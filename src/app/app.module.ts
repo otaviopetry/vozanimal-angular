@@ -21,6 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
 import { AnimalsPageComponent } from './pages/animals/animals-page.component';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
+import { AnimalReducer } from 'src/app/infra/store/animal';
 
 @NgModule({
     declarations: [
@@ -46,6 +47,9 @@ import { HomePageComponent } from 'src/app/pages/home/home-page.component';
         StoreModule.forRoot(reducers, {
             metaReducers,
         }),
+        StoreModule.forFeature(
+            AnimalReducer.animalsFeature,
+        ),
         EffectsModule.forRoot([
             LoadPagesEffects,
         ]),

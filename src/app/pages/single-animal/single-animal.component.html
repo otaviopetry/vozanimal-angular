@@ -1,1 +1,4 @@
-<p>animal works!</p>
+<ng-container *ngIf="animalPage$ | async as animalPage">
+    <h1>{{ animalPage.title.rendered }}</h1>
+    {{ animalPage.content.rendered }}
+</ng-container>

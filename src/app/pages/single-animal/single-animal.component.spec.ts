@@ -1,13 +1,20 @@
-import { getMockStore, MockStore } from '@ngrx/store/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 import { SingleAnimalPageComponent } from 'src/app/pages/single-animal/single-animal.component';
 
 describe('[Unit] - SingleAnimalPageComponent', (): void => {
     let component: SingleAnimalPageComponent;
-
-    const mockStore: MockStore = getMockStore();
+    let activatedRouteSpy: jasmine.SpyObj<ActivatedRoute>;
 
     beforeEach((): void => {
-        component = new SingleAnimalPageComponent(mockStore);
+        activatedRouteSpy = jasmine.createSpyObj(
+            'ActivatedRoute',
+            [''],
+            {
+                data: of(),
+            }
+        );
+        component = new SingleAnimalPageComponent(activatedRouteSpy);
     });
 
     it('should initialize the component', (): void => {

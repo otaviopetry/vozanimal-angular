@@ -1,27 +1,27 @@
-import { Action, ActionReducer, createReducer, on } from "@ngrx/store";
+import { createFeature, createReducer, on } from "@ngrx/store";
 import { AnimalActions } from "src/app/infra/store/animal";
-import { IAnimalsPagesState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
+import { IAnimalsState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
-const animalsPageReducer: ActionReducer<{ }, Action> = createReducer(
-    { },
-    on(
-        AnimalActions.saveAnimals,
-        (
-            state: IAnimalsPagesState | { },
-            { animals }: { animals: IPageData[] },
-        ): IAnimalsPagesState => {
-            return {
-                ...state,
-                animals
-            };
-        },
-    ),
-);
+const animalsInitialState: IAnimalsState = {
+    animals: [],
+};
 
-export function reducer(
-    state: IAnimalsPagesState,
-    action: Action,
-) {
-    return animalsPageReducer(state, action);
-}
+export const animalsFeature = createFeature({
+    name: 'animals',
+    reducer: createReducer(
+        animalsInitialState,
+        on(
+            AnimalActions.saveAnimals,
+            (
+                state: IAnimalsState | { },
+                { animals }: { animals: IPageData[] },
+            ): IAnimalsState => {
+                return {
+                    ...state,
+                    animals
+                };
+            },
+        ),
+    ),
+});

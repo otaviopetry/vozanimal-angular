@@ -25,6 +25,23 @@ export class LoadPagesEffects {
         { dispatch: true, useEffectsErrorHandler: true },
     );
 
+    handleLoadAnimal$ = createEffect(
+        (): Observable<Action> => {
+            return this.actions$.pipe(
+                ofType(AnimalActions.loadAnimal),
+                concatMap(({ animal }: { animal: string }): Observable<Action> => {
+                    return this.loadPageService.loadPageBySlug(animal).pipe(
+                        map((pageRequestResponse: IPageData[]): Action => {
+                            return AnimalActions.saveAnimals({
+                                animals: pageRequestResponse,
+                            });
+                        })
+                    );
+                })
+            );
+        }
+    );
+
     handleLoadAnimals$ = createEffect(
         (): Observable<Action> => { return this.actions$.pipe(
             ofType(AnimalActions.loadAnimals),

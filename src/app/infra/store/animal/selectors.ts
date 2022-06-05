@@ -1,12 +1,23 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { IAnimalsPagesState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
+import { createSelector } from "@ngrx/store";
+import { AnimalReducer } from "src/app/infra/store/animal";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
-const selectFeature = createFeatureSelector<IAnimalsPagesState>('animals');
-
 export const selectAnimals = createSelector(
-    selectFeature,
-    (state: IAnimalsPagesState): IPageData[] => {
-        return state.animals;
+    AnimalReducer.animalsFeature.selectAnimals,
+    (animals: IPageData[]): IPageData[] => {
+        return animals;
     }
+);
+
+export const selectAnimal = (animalSlug: string) => createSelector(
+    selectAnimals,
+    (animals: IPageData[]): IPageData | null => {
+        const animal: IPageData | undefined = animals.find((animal: IPageData): boolean => animal.slug === animalSlug);
+
+        if (!animal) {
+            return null;
+        }
+
+        return animal;
+    },
 );

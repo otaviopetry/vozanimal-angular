@@ -1,9 +1,12 @@
-import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
+import { ActionReducer, MetaReducer } from '@ngrx/store';
 import { localStorageSync } from 'ngrx-store-localstorage';
-import { AnimalReducer } from 'src/app/infra/store/animal';
-import { MainPagesReducer } from 'src/app/infra/store/main-pages';
+import { IAnimalsState } from 'src/app/infra/store/animal/interfaces/animals-state.interface';
+import { IMainPagesState } from 'src/app/infra/store/main-pages/interfaces/main-pages-state.interface';
 
-export interface State {}
+export interface IApplicationState {
+    mainPages: IMainPagesState;
+    animals: IAnimalsState;
+}
 
 export function localStorageSyncReducer(
     reducer: ActionReducer<any>
@@ -12,11 +15,6 @@ export function localStorageSyncReducer(
         keys: ['mainPages', 'animals'],
     })(reducer);
 }
-
-export const reducers: ActionReducerMap<State> = {
-    mainPages: MainPagesReducer.reducer,
-    animals: AnimalReducer.reducer,
-};
 
 export const metaReducers: Array<MetaReducer<any, any>> = [
     localStorageSyncReducer,

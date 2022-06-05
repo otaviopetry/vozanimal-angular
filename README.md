@@ -1,27 +1,31 @@
-# VozAnimal
+# Voz Animal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.7.
+
+
+Recreation of the Santuário Voz Animal website in Angular 13 + Wordpress REST API
+
+<div style="text-align: center"><img src="img/logo-voz-animal-vertical-branco.png" width="250px" /></div>
+
+## About the project
+Santuário Voz Animal is an animal protection institution in Rio Grande do Sul state, Brazil, that shelters rescued or abandoned animals and only exists because of the work of dozens of volunteers and financial aid from donators.
+There are over 300 animals: cats, dogs, horses, cows, pigs, poultry and one sheep, Dolly.
+
+Live site: [https://www.santuariovozanimal.com.br](https://www.santuariovozanimal.com.br)
+
+## Contributing
+
+If you want to help with this project in any way, reach me out at `otaviopetry@gmail.com` or catch me live at [https://www.twitch.tv/otavio_things](https://www.twitch.tv/otavio_things)
+
+## Pre-requisites
+
+- Node version 12.20.x/14.15.x/16.10
+
+## Installing
+
+- Clone this project, navigate to its directory and run `npm install`
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

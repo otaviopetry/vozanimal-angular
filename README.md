@@ -4,7 +4,7 @@
 
 Recreation of the Santuário Voz Animal website in Angular 13 + Wordpress REST API
 
-<div style="text-align: center"><img src="img/logo-voz-animal-vertical-branco.png" width="250px" /></div>
+<p align="center"><img src="img/logo-voz-animal-vertical-branco.png" width="250px" /></p>
 
 ## About the project
 Santuário Voz Animal is an animal protection institution in Rio Grande do Sul state, Brazil, that shelters rescued or abandoned animals and only exists because of the work of dozens of volunteers and financial aid from donators.

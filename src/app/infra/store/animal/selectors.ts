@@ -14,6 +14,10 @@ export const selectAnimals = createSelector(
 export const selectAnimal = (animalSlug: string) => createSelector(
     selectFeature,
     (state: IAnimalsPagesState): IPageData | null => {
+        if (!state.animals) {
+            return null;
+        }
+
         const animalPage = state.animals.find((animal: IPageData): boolean => animal.slug === animalSlug);
 
         if (animalPage === undefined) {
@@ -23,3 +27,5 @@ export const selectAnimal = (animalSlug: string) => createSelector(
         return animalPage;
     },
 );
+
+// fazer um selector com pipe?

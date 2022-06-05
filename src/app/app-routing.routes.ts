@@ -7,6 +7,7 @@ import { ContactPageComponent } from 'src/app/pages/contact/contact-page.compone
 import { AdoptionPageComponent } from 'src/app/pages/adoption/adoption-page.component';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
 import { SingleAnimalPageComponent } from 'src/app/pages/single-animal/single-animal.component';
+import { SingleAnimalRouteResolver } from 'src/app/resolvers/single-animal-page.resolver';
 
 const routes: Routes = [
     {
@@ -34,8 +35,11 @@ const routes: Routes = [
         path: SiteData.SLUG_ANIMAIS,
         children: [
             {
-                path: 'bombachinha',
+                path: ':animal',
                 component: SingleAnimalPageComponent,
+                resolve: {
+                    animal: SingleAnimalRouteResolver,
+                }
             }
         ]
     },

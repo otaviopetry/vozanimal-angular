@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
-import { AnimalSelectors } from 'src/app/infra/store/animal';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, of, Subscription } from 'rxjs';
 import { IPageData } from 'src/app/services/load-page/interfaces/page-data.interface';
 
 @Component({
@@ -11,11 +10,23 @@ import { IPageData } from 'src/app/services/load-page/interfaces/page-data.inter
     styleUrls: ['./single-animal.component.scss'],
 })
 export class SingleAnimalPageComponent {
-    public animalPage$: Observable<IPageData | null> = of();
+    public animalPage$: Observable<IPageData> = of();
+
+    protected subscriptions: Subscription[] = [];
 
     constructor(
-        protected store: Store,
+        protected activatedRoute: ActivatedRoute,
     ) {
-        this.animalPage$ = this.store.select(AnimalSelectors.selectAnimal('bombachinha'));
+        this.subscriptions.push(
+            this.activatedRoute.data.subscribe(
+                (data: any): void => {
+                    if (!data.animal) {
+                        return;
+                    }
+
+                    this.animalPage$ = of(data.animal[0]);
+                }
+            )
+        );
     }
 }

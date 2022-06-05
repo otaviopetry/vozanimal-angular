@@ -16,11 +16,12 @@ import { CtaQuemSomosComponent } from './pages/home/components/cta-quem-somos/ct
 import { HttpClientModule } from '@angular/common/http';
 import { CtaOutrasFormasComponent } from './pages/home/components/cta-outras-formas/cta-outras-formas.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './infra/store';
+import { metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
 import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
 import { AnimalsPageComponent } from './pages/animals/animals-page.component';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
+import { MainPagesReducer } from 'src/app/infra/store/main-pages';
 import { AnimalReducer } from 'src/app/infra/store/animal';
 
 @NgModule({
@@ -44,9 +45,12 @@ import { AnimalReducer } from 'src/app/infra/store/animal';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        StoreModule.forRoot(reducers, {
+        StoreModule.forRoot({ }, {
             metaReducers,
         }),
+        StoreModule.forFeature(
+            MainPagesReducer.mainPagesFeature,
+        ),
         StoreModule.forFeature(
             AnimalReducer.animalsFeature,
         ),

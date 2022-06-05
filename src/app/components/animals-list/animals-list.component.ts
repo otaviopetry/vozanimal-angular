@@ -6,11 +6,11 @@ import { IPageData } from 'src/app/services/load-page/interfaces/page-data.inter
 
 @Component({
     selector: 'va-animals',
-    templateUrl: './animals-page.component.html',
-    styleUrls: ['./animals-page.component.scss'],
+    templateUrl: './animals-list.component.html',
+    styleUrls: ['./animals-list.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AnimalsPageComponent implements OnInit {
+export class AnimalsListComponent implements OnInit {
     public animals$: Observable<IPageData[]> = of();
 
     constructor(

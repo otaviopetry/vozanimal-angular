@@ -19,7 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { metaReducers } from './infra/store';
 import { EffectsModule } from '@ngrx/effects';
 import { LoadPagesEffects } from 'src/app/effects/load-pages/load-pages.effects';
-import { AnimalsPageComponent } from './pages/animals/animals-page.component';
+import { AnimalsListComponent } from './components/animals-list/animals-list.component';
 import { HomePageComponent } from 'src/app/pages/home/home-page.component';
 import { MainPagesReducer } from 'src/app/infra/store/main-pages';
 import { AnimalReducer } from 'src/app/infra/store/animal';
@@ -39,7 +39,7 @@ import { AnimalReducer } from 'src/app/infra/store/animal';
         CtaAdoteComponent,
         CtaQuemSomosComponent,
         CtaOutrasFormasComponent,
-        AnimalsPageComponent,
+        AnimalsListComponent,
     ],
     imports: [
         BrowserModule,

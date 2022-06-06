@@ -18,7 +18,7 @@ export class CtaAdoteComponent {
         protected store: Store,
     ) {
         this.pageData$ = this.store.select(
-            MainPagesSelectors.selectPage(SiteData.SLUG_ADOTE),
+            MainPagesSelectors.selectPage(SiteData.SLUG_ADOPTION),
         );
     }
 }

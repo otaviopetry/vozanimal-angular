@@ -18,7 +18,7 @@ export class CtaApadrinheComponent {
         protected store: Store,
     ) {
         this.pageData$ = this.store.select(
-            MainPagesSelectors.selectPage(SiteData.SLUG_APADRINHE),
+            MainPagesSelectors.selectPage(SiteData.SLUG_SPONSORING),
         );
     }
 }

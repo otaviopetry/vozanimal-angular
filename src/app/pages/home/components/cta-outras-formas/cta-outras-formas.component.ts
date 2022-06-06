@@ -21,10 +21,10 @@ export class CtaOutrasFormasComponent {
         protected loadPageService: LoadPageService,
     ) {
         this.pageData$ = this.store.select(
-            MainPagesSelectors.selectPage(SiteData.SLUG_OUTRAS_FORMAS),
+            MainPagesSelectors.selectPage(SiteData.SLUG_OTHER_WAYS_TO_HELP),
         );
         this.childPages$ = this.loadPageService.loadPagesByParentSlug(
-            SiteData.SLUG_OUTRAS_FORMAS
+            SiteData.SLUG_OTHER_WAYS_TO_HELP
         );
     }
 }

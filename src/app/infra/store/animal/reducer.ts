@@ -27,7 +27,7 @@ export const animalsFeature = createFeature({
                     animals: [
                         ...state.animals,
                         ...animals,
-                    ]
+                    ],
                 };
             },
         ),

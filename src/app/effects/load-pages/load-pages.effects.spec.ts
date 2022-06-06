@@ -85,7 +85,7 @@ describe('[Unit] - MainPagesEffects', (): void => {
         it('should call the loadPageService and request 30 animals per page', (): void => {
             testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
                 const actions = hot('a', {
-                    a: AnimalActions.loadAnimals(),
+                    a: AnimalActions.loadAnimals({ page: 2 }),
                 });
 
                 const effects = getEffects(actions);
@@ -96,6 +96,7 @@ describe('[Unit] - MainPagesEffects', (): void => {
             expect(loadPageServiceSpy.loadPagesByParentSlug).toHaveBeenCalledWith(
                 'animais',
                 30,
+                2,
             );
         });
 
@@ -120,7 +121,7 @@ describe('[Unit] - MainPagesEffects', (): void => {
 
             testScheduler.run(({ hot, expectObservable }: RunHelpers): void => {
                 const actions = hot('a', {
-                    a: AnimalActions.loadAnimals(),
+                    a: AnimalActions.loadAnimals({ page: 1 }),
                 });
 
                 const effects = getEffects(actions);

@@ -1,4 +1,4 @@
-/* import { Action } from "@ngrx/store";
+import { Action } from "@ngrx/store";
 import { MainPagesActions, MainPagesReducer } from "src/app/infra/store/main-pages";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
@@ -14,10 +14,10 @@ describe('[Unit] - MainPagesReducer', (): void => {
                 pageData: mockedPageData
             });
 
-            expect(MainPagesReducer.reducer({ }, action)).toEqual({
+            expect(MainPagesReducer.mainPagesFeature.reducer({ }, action)).toEqual({
                 [mockedSlug]: mockedPageData,
             });
         });
     });
 });
- */
+

@@ -16,7 +16,7 @@ export class CtaQuemSomosComponent {
 
     constructor(protected store: Store) {
         this.pageData$ = this.store.select(
-            MainPagesSelectors.selectPage(SiteData.SLUG_QUEM_SOMOS),
+            MainPagesSelectors.selectPage(SiteData.SLUG_ABOUT_US),
         );
     }
 }

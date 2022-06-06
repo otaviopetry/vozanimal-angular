@@ -1,30 +1,31 @@
-/* import { IAnimalsPagesState } from "src/app/infra/store/animal/interfaces/animals-state.interface";
+import { AnimalSelectors } from "src/app/infra/store/animal";
 import { IPageData } from "src/app/services/load-page/interfaces/page-data.interface";
 
 describe('[Unit] - AnimalsSelectors', (): void => {
-    const mockedAnimalsPageBatch: IPageData[] = [
-        {
-            id: 55,
-            content: {
-                rendered: 'random words',
-            },
-            excerpt: {
-                rendered: 'random words',
-            },
-            slug: 'random words',
-            title: {
-                rendered: 'random words'
-            }
+    const mockedSlug: string = 'some-animal';
+    const mockedAnimalPage: IPageData = {
+        id: 55,
+        content: {
+            rendered: 'random words',
+        },
+        excerpt: {
+            rendered: 'random words',
+        },
+        slug: mockedSlug,
+        title: {
+            rendered: 'random words',
         }
-    ];
-    const animalsState: IAnimalsPagesState = {
-        animals: mockedAnimalsPageBatch,
     };
+    const mockedAnimals: IPageData[] = [mockedAnimalPage];
 
     describe('selectAnimals', (): void => {
         it('should select the animals array from redux', (): void => {
-            pending();
+            const animalPage: IPageData | null = AnimalSelectors.selectAnimal(
+                mockedSlug
+            ).projector(mockedAnimals);
+
+            expect(animalPage).toEqual(mockedAnimalPage);
         });
     });
 });
- */
+

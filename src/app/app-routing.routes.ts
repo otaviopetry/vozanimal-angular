@@ -16,23 +16,23 @@ const routes: Routes = [
         component: HomePageComponent,
     },
     {
-        path: SiteData.SLUG_APADRINHE,
+        path: SiteData.SLUG_SPONSORING,
         component: SponsoringPageComponent,
     },
     {
-        path: SiteData.SLUG_ADOTE,
+        path: SiteData.SLUG_ADOPTION,
         component: AdoptionPageComponent,
     },
     {
-        path: SiteData.SLUG_QUEM_SOMOS,
+        path: SiteData.SLUG_ABOUT_US,
         component: AboutUsComponent,
     },
     {
-        path: SiteData.SLUG_CONTATO,
+        path: SiteData.SLUG_CONTACT,
         component: ContactPageComponent,
     },
     {
-        path: SiteData.SLUG_ANIMAIS,
+        path: SiteData.SLUG_ANIMALS,
         children: [
             {
                 path: ':animal',

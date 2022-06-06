@@ -1,3 +1,4 @@
 <ng-container *ngFor="let animal of animals$ | async">
     <h1>{{ animal.title.rendered }}</h1>
 </ng-container>
+<button (click)="loadNextPage()">Load page 2</button>

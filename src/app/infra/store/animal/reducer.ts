@@ -14,12 +14,20 @@ export const animalsFeature = createFeature({
         on(
             AnimalActions.saveAnimals,
             (
-                state: IAnimalsState | { },
+                state: IAnimalsState,
                 { animals }: { animals: IPageData[] },
             ): IAnimalsState => {
+                if (
+                    state.animals.some((animal: IPageData): boolean => animal.id === animals[0].id)
+                ) {
+                    return state;
+                }
+
                 return {
-                    ...state,
-                    animals
+                    animals: [
+                        ...state.animals,
+                        ...animals,
+                    ]
                 };
             },
         ),

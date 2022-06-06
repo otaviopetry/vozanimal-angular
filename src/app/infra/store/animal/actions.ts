@@ -9,6 +9,7 @@ enum Actions {
 
 export const loadAnimals = createAction(
     Actions.LOAD_ANIMALS,
+    props<{ page: number }>(),
 );
 
 export const saveAnimals = createAction(

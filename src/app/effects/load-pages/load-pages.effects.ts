@@ -45,12 +45,13 @@ export class LoadPagesEffects {
     handleLoadAnimals$ = createEffect(
         (): Observable<Action> => { return this.actions$.pipe(
             ofType(AnimalActions.loadAnimals),
-            concatMap((): Observable<Action> => {
+            concatMap(({ page }: { page: number }): Observable<Action> => {
                 const animalsPerRequest: number = 30;
 
                 return this.loadPageService.loadPagesByParentSlug(
                     'animais',
                     animalsPerRequest,
+                    page,
                 ).pipe(
                     map((pageRequestResponse: IPageData[]): Action => {
                         return AnimalActions.saveAnimals({
